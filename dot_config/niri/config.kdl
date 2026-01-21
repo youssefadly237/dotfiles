@@ -90,7 +90,7 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@144"
+    mode "1920x1080@144.003"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -114,6 +114,7 @@ output "eDP-1" {
 output "HDMI-A-1" {
     position x=0 y=0
     scale 1
+    transform "normal"
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -280,6 +281,8 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-sh-at-startup "wl-paste --watch cliphist store &"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store &"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -373,9 +376,11 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // mine config
-    Super+G hotkey-overlay-title="Toggle tablet mapping" { spawn-sh "~/Scripts/niri-tablet.sh"; }
+    Super+G hotkey-overlay-title="Toggle tablet mapping" { spawn-sh "~/.scripts/niri-tablet.sh"; }
+    Super+V hotkey-overlay-title="Fuzzel Clipboard" { spawn-sh "~/.scripts/clipmenu.sh"; }
     Super+T hotkey-overlay-title="Read Clipboard" { spawn-sh "~/Scripts/read_clipboard.sh"; }
     Super+X hotkey-overlay-title="Xournal++" {spawn "xournalpp";}
+    Super+E hotkey-overlay-title="Nautilus" {spawn "nautilus";}
     Super+B hotkey-overlay-title="Brave" {spawn "brave-browser";}
     Super+Shift+S { screenshot; }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }

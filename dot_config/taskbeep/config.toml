@@ -1,0 +1,27 @@
+# TaskBeep Configuration
+# Edit this file to customize your taskbeep settings
+# Uncomment any values below to override defaults
+
+## Session Settings
+# Default session duration in seconds (25 minutes = 1500 seconds)
+session_duration = 300
+
+## Audio Settings
+# Audio volume (0.0 to 1.0)
+# volume = 0.4
+
+# Beep frequency in Hz
+# beep_frequency = 2048.0
+
+# First beep duration in seconds
+# first_beep_duration = 0.08
+
+# Second beep duration in seconds
+# second_beep_duration = 0.12
+
+# Gap between beeps in seconds
+# gap_duration = 0.09
+
+# Pause after beep pattern in seconds
+# pause_duration = 0.7
+on_timer_finish = "/home/youssef-adly/.config/taskbeep/on_timer_finish.sh"

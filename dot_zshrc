@@ -45,6 +45,8 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 source "$HOME/.cargo/env"
+source "$HOME/.deno/env"
+
 
 export PATH="$PATH:/usr/local/go/bin"
 export GOPATH=$(go env GOPATH)
@@ -72,6 +74,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias nivm='nvim'
+alias taskbeep='beep'
+
+alias c='clear'
 
 alias vmon='krfb-virtualmonitor --name PhoneDisplay --resolution 2460x1080 --password 123 --port 5900'
 
@@ -96,3 +101,9 @@ alias getidf='source $HOME/development/esp-idf/export.sh'
 
 # === XMAKE ===
 [[ -f "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile"
+
+# opencode
+export PATH=/home/youssef-adly/.opencode/bin:$PATH
+
+# completion
+fpath+=~/.zfunc; autoload -Uz compinit; compinit

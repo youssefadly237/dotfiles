@@ -24,37 +24,39 @@ if [[ -n "$cmd" ]]; then
     esac
 fi
 
-raw=$(taskbeep status 2>/dev/null)
+raw=$(taskbeep status --format plain 2>/dev/null)
 
-if echo "$raw" | grep -q "Timer not running"; then
+if [[ $? -ne 0 ]] || [[ -z "$raw" ]]; then
     echo '{"text":"Idle", "class":"idle"}'
     exit 0
 fi
 
-if echo "$raw" | grep -q "Error"; then
-    echo '{"text":"error", "class":"error"}'
-    exit 0
-fi
+status=""
+remaining_seconds=0
 
-status=$(echo "$raw" | head -n1)
-remaining=$(echo "$raw" | grep 'Time remaining:' | cut -d: -f2- | sed 's/^ *//')
+while IFS='=' read -r key value; do
+    case "$key" in
+    status)
+        status="$value"
+        ;;
+    remaining_seconds)
+        remaining_seconds="$value"
+        ;;
+    esac
+done <<<"$raw"
 
 case "$status" in
-Running)
-    h=0 m=0 s=0
-    [[ "$remaining" =~ ([0-9]+)h ]] && h=${BASH_REMATCH[1]}
-    [[ "$remaining" =~ ([0-9]+)m ]] && m=${BASH_REMATCH[1]}
-    [[ "$remaining" =~ ([0-9]+)s ]] && s=${BASH_REMATCH[1]}
-
-    total=$((h * 3600 + m * 60 + s))
-    text=$(printf "%02d:%02d" $((total / 60)) $((total % 60)))
+running)
+    minutes=$((remaining_seconds / 60))
+    seconds=$((remaining_seconds % 60))
+    text=$(printf "%02d:%02d" "$minutes" "$seconds")
     class="running"
     ;;
-Paused)
+paused)
     text="Paused "
     class="paused"
     ;;
-"Waiting for response")
+waiting)
     text="Waiting"
     class="waiting"
     ;;

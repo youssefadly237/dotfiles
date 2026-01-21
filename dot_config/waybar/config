@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "width": 1920,
+    // "width": 1920,
     "modules-left": ["niri/workspaces", "custom/music", "custom/pomodoro"],
     "modules-center": ["custom/launcher", "custom/cpu", "custom/ram", "custom/gpu", "clock"],
     "modules-right": ["pulseaudio", "backlight", "battery", "tray", "custom/lock", "custom/power"],
@@ -30,8 +30,8 @@
     "clock": {
         "timezone": "Africa/Cairo",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "󰃭 {:%d/%m/%Y}",
-        "format": " {:%H:%M}"
+        "format-alt": "󰃭 {:%d %b %Y}",
+        "format": " {:%I:%M %p}"
     },
     "backlight": {
         "device": "intel_backlight",
