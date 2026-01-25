@@ -4,7 +4,7 @@
 
 PLAYER=$(playerctl --list-all | grep -i spotify)
 [ -z "$PLAYER" ] && {
-    [ "$1" = "metadata" ] && echo "No music"
+    [ "$1" = "full" ] && echo '{"text":"No music", "class":"idle"}'
     exit 0
 }
 
@@ -37,9 +37,21 @@ adjust_volume() {
 
 case "$1" in
 full)
+    STATUS=$(playerctl -p spotify status 2>/dev/null)
     TITLE=$(playerctl -p spotify metadata title 2>/dev/null)
     TITLE=$(escape_markup "${TITLE:-No music}")
-    echo "{\"text\": \"$TITLE\", \"tooltip\": \" $(get_volume)%\"}"
+    case "$STATUS" in
+    Playing)
+        CLASS="playing"
+        ;;
+    Paused)
+        CLASS="paused"
+        ;;
+    *)
+        CLASS="idle"
+        ;;
+    esac
+    echo "{\"text\": \"$TITLE\", \"tooltip\": \" $(get_volume)%\", \"class\": \"$CLASS\"}"
     ;;
 metadata)
     METADATA=$(playerctl -p spotify metadata --format '{{ title }}' 2>/dev/null)

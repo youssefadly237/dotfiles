@@ -1,5 +1,7 @@
+/* vim: set filetype=less: */
 @import "mocha.css";
 
+/* Base styles */
 * {
   font-family: JetBrains Mono Nerd Font;
   font-size: 17px;
@@ -12,10 +14,11 @@
   margin: 5px 5px;
 }
 
+/* Workspaces */
 #workspaces {
+  background-color: @surface0;
   border-radius: 1rem;
   margin: 5px;
-  background-color: @surface0;
   margin-left: 1rem;
   padding: 0rem 1rem;
 }
@@ -28,14 +31,13 @@
 
 #workspaces button.active {
   color: @sky;
-  border-radius: 1rem;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-  border-radius: 1rem;
 }
 
+/* Shared module styles */
 #custom-music,
 #custom-pomodoro,
 #tray,
@@ -43,6 +45,8 @@
 #clock,
 #battery,
 #pulseaudio,
+#network,
+#bluetooth,
 #custom-lock,
 #custom-power,
 #custom-launcher {
@@ -59,6 +63,7 @@
   margin: 5px 0;
 }
 
+/* System monitors */
 #custom-cpu {
   color: @red;
 }
@@ -71,15 +76,90 @@
   color: @yellow;
 }
 
+/* Left section */
+#custom-music {
+  color: @text;
+  border-radius: 1rem;
+}
+
+#custom-music.playing {
+  color: @mauve;
+}
+
+#custom-music.paused {
+  color: @yellow;
+}
+
+#custom-music.idle {
+  color: @overlay0;
+}
+
+#custom-pomodoro {
+  color: @text;
+  border-radius: 1rem;
+  margin-left: 0.5rem;
+}
+
+#custom-pomodoro.running {
+  color: @green;
+}
+
+#custom-pomodoro.paused {
+  color: @yellow;
+}
+
+#custom-pomodoro.waiting {
+  color: @red;
+}
+
+/* Center section */
+#custom-launcher {
+  color: @mauve;
+  border-radius: 1rem 0px 0px 1rem;
+}
+
 #clock {
   color: @mauve;
   border-radius: 0px 1rem 1rem 0px;
 }
 
+/* Right section - pulseaudio is first (left edge) */
+#pulseaudio {
+  color: @maroon;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#backlight {
+  color: @yellow;
+  border-radius: 0;
+}
+
+#network {
+  color: @blue;
+  border-radius: 0;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#bluetooth {
+  color: @blue;
+  border-radius: 0;
+}
+
+#bluetooth.disabled {
+  color: @overlay0;
+}
+
+#bluetooth.connected {
+  color: @teal;
+}
+
 #battery {
-  margin-right: 1rem;
   color: @green;
-    border-radius: 0px 1rem 1rem 0px;
+  border-radius: 0px 1rem 1rem 0px;
 }
 
 #battery.charging {
@@ -90,52 +170,20 @@
   color: @red;
 }
 
-#backlight {
-  color: @yellow;
-}
-
-#backlight {
-  border-radius: 0;
-}
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
+#tray {
+  border-radius: 1rem;
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-#custom-music {
-  color: @mauve;
-  border-radius: 1rem;
-}
-
-#custom-pomodoro {
-  border-radius: 1rem;
-  margin-left: 0.5rem;
-}
-
-#custom-pomodoro.running { color: @green; }
-#custom-pomodoro.paused  { color: @yellow; }
-#custom-pomodoro.waiting { color: @red; }
-
+/* Lock/Power section - separate group */
 #custom-lock {
-  border-radius: 1rem 0px 0px 1rem;
   color: @lavender;
+  border-radius: 1rem 0px 0px 1rem;
 }
 
 #custom-power {
-  margin-right: 1rem;
-  border-radius: 0px 1rem 1rem 0px;
   color: @red;
-}
-
-#custom-launcher {
-  border-radius: 1rem 0px 0px 1rem;
-  padding: 0.5rem 1rem;
-  color: @mauve;
-}
-
-#tray {
+  border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
-  border-radius: 1rem;
 }
