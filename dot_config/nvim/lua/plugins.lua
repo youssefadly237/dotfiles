@@ -23,4 +23,6 @@ return {
   { import = "plugins.virt-column" },
   { import = "plugins.blankline" },
   { import = "plugins.navic" },
+  { import = "plugins.surround" },
+  { import = "plugins.minuet" },
 }

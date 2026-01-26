@@ -5,9 +5,9 @@ return {
     require("diffview").setup()
   end,
   keys = {
-    { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
-    { "<leader>gc", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
-    { "<leader>gh", "<cmd>DiffviewFileHistory<cr>", desc = "File History" },
-    { "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", desc = "File History (Current)" },
+    { "<leader>ggd", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
+    { "<leader>ggc", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+    { "<leader>ggh", "<cmd>DiffviewFileHistory<cr>", desc = "File History" },
+    { "<leader>ggf", "<cmd>DiffviewFileHistory %<cr>", desc = "File History (Current)" },
   },
 }

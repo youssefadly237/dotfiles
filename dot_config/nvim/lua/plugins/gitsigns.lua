@@ -12,7 +12,7 @@ return {
     })
   end,
   keys = {
-    { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Git Blame" },
-    { "<leader>gB", "<cmd>Gitsigns blame_line<cr>", desc = "Show Full Blame" },
+    { "<leader>ggb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Git Blame" },
+    { "<leader>ggB", "<cmd>Gitsigns blame_line<cr>", desc = "Show Full Blame" },
   },
 }
