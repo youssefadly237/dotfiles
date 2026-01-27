@@ -32,12 +32,11 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        "black",
+        "ruff",
         "clang-format",
         "prettier",
         "stylua",
         "markdownlint",
-        "pylint",
         "sql-formatter",
         "shfmt",
         "taplo",

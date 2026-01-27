@@ -22,8 +22,32 @@ return {
     end
 
     -- Python LSP
+    setup("ruff", {
+      on_attach = function(client)
+        client.server_capabilities.hoverProvider = false
+      end,
+      init_options = {
+        settings = {
+          logLevel = "info",
+        },
+      },
+    })
+
     setup("pyright", {
       on_attach = disable_formatting,
+      settings = {
+        pyright = {
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            typeCheckingMode = "basic",
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            diagnosticMode = "workspace",
+          },
+        },
+      },
     })
 
     -- C/C++ LSP
