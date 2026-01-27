@@ -173,13 +173,13 @@
 #tray {
   border-radius: 1rem;
   margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 /* Lock/Power section - separate group */
 #custom-lock {
   color: @lavender;
   border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
 }
 
 #custom-power {

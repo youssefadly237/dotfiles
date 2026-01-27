@@ -37,4 +37,8 @@ return {
       },
     })
   end,
+
+  vim.keymap.set("n", "<leader>mv", function()
+    vim.cmd("Minuet virtualtext toggle")
+  end, { desc = "Toggle Minuet virtual text" }),
 }
