@@ -113,10 +113,10 @@
     "on-click-right": "~/.config/waybar/scripts/pomodoro.sh wasting",
   },
   "network": {
-    "format-wifi": "󰖩 {essid}",
+    "format-wifi": "󰖩",
     "format-ethernet": "󰈀 {ifname}",
     "format-disconnected": "󰖪 Disconnected",
-    "format-alt": "󰖩",
+    "format-alt": "󰖩 {essid}",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "on-click-right": "nm-connection-editor",
     "on-click-middle": "nmcli device wifi rescan",

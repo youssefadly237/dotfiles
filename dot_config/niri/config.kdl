@@ -63,7 +63,7 @@ input {
     }
 
     tablet {
-      map-to-output "HDMI-A-1"
+      map-to-output "eDP-1"
       left-handed
     }
     // Uncomment this to make the mouse warp to the center of newly focused windows.
@@ -646,6 +646,8 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+prefer-no-csd
 
 environment {
     QT_QPA_PLATFORMTHEME "qt6ct"

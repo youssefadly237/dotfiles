@@ -1,7 +1,55 @@
-# === PROMPT ===
+# === EXPORTS ===
+
+# Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# General environment
+export TERM=xterm-256color
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export RUST_BACKTRACE=1
+
+# Ruby
+export GEM_HOME="$HOME/gems"
+export PATH="$GEM_HOME/bin:$PATH"
+
+# Node/NVM
+export NVM_DIR="$HOME/.nvm"
+
+# Go
+export PATH="/usr/local/go/bin:$PATH"
+export GOPATH=$(go env GOPATH)
+export GOBIN=$GOPATH/bin
+export PATH="$GOBIN:$PATH"
+
+# Android
+export ANDROID_HOME="$HOME/Android/Sdk"
+export NDK_HOME="$ANDROID_HOME/ndk/29.0.13599879"
+export PATH="$ANDROID_HOME/emulator:$PATH"
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/tools/bin:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+export PATH="/opt/android-studio/bin:$PATH"
+
+# Flutter
+export PATH="$HOME/development/flutter/bin:$PATH"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Development tools
+export PATH="$HOME/Apps/android-studio/bin:$PATH"
+export PATH="$HOME/.spicetify:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/Apps/typst-x86_64-unknown-linux-musl:$PATH"
+export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+export MASONBIN="$HOME/.local/share/nvim/mason/bin"
+
+# === PROMPT ===
 eval "$(starship init zsh)"
 
+# === SSH AGENT ===
 if ! pgrep -u "$USER" ssh-agent >/dev/null; then
     eval "$(ssh-agent -s)"
 fi
@@ -12,18 +60,13 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# === KEYBINDING ===
-bindkey -v
-
 # === COMPLETION ===
+fpath+=~/.zfunc
 autoload -Uz compinit
 compinit
-
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-# Optional: nicer completion UI (can be skipped if using plugins)
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -31,61 +74,57 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' verbose true
 
+# === SOURCE EXTERNAL CONFIGS ===
 
-# === ENV + PATH ===
-export PATH="$HOME/development/flutter/bin:$HOME/Apps/android-studio/bin:$HOME/.spicetify:$HOME/.local/bin:$HOME/Apps/typst-x86_64-unknown-linux-musl:/opt/nvim-linux-x86_64/bin:$PATH"
-
-export GEM_HOME="$HOME/gems"
-export PATH="$PATH:$GEM_HOME/bin"
-
-export TERM=xterm-256color
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
-
-export NVM_DIR="$HOME/.nvm"
+# Node/NVM
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
+# Rust/Cargo
 source "$HOME/.cargo/env"
+
+# Deno
 source "$HOME/.deno/env"
 
-
-export PATH="$PATH:/usr/local/go/bin"
-export GOPATH=$(go env GOPATH)
-export GOBIN=$GOPATH/bin
-export PATH="$PATH:$GOBIN"
-
-export ANDROID_HOME="$HOME/Android/Sdk"
-export NDK_HOME="$ANDROID_HOME/ndk/29.0.13599879"
-export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/opt/android-studio/bin:$PATH"
-
-export MASONBIN="$HOME/.local/share/nvim/mason/bin"
-
+# Gradle
 source /etc/profile.d/gradle.sh
 
-export RUST_BACKTRACE=1
+# XMake
+[[ -f "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile"
+
+# Bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# zsh history
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=black,fg=green,bold'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=black,fg=red,bold'
+source "$HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+# === KEYBINDING ===
+bindkey -v
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # === ALIASES ===
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
 alias nivm='nvim'
 alias beep='taskbeep'
-
 alias c='clear'
-
 alias vmon='krfb-virtualmonitor --name PhoneDisplay --resolution 2460x1080 --password 123 --port 5900'
+alias getidf='source $HOME/development/esp-idf/export.sh'
 
 # Arduino
 alias a-monitor='arduino-cli monitor -p /dev/ttyUSB0 --config 115200 -b esp32:esp32:node32s'
 alias a-compile='arduino-cli compile -b esp32:esp32:node32s'
 alias a-uploud='arduino-cli upload -b esp32:esp32:node32s -p /dev/ttyUSB0'
 
-# custom functions
+# === CUSTOM FUNCTIONS ===
 source ~/.zsh/functions/venvon.zsh
 source ~/.zsh/functions/update-discord.zsh
 source ~/.zsh/functions/tts_convert.zsh
@@ -95,15 +134,3 @@ function clearpycache() {
   find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
   echo "All cleared up"
 }
-
-alias getidf='source $HOME/development/esp-idf/export.sh'
-
-
-# === XMAKE ===
-[[ -f "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile"
-
-# opencode
-export PATH=/home/youssef-adly/.opencode/bin:$PATH
-
-# completion
-fpath+=~/.zfunc; autoload -Uz compinit; compinit

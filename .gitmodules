@@ -1,3 +1,6 @@
 [submodule "dot_config/xournalpp/plugins/vi-xournalpp"]
 	path = dot_config/xournalpp/plugins/vi-xournalpp
 	url = https://github.com/youssefadly237/vi-xournalpp.git
+[submodule "dot_zsh/zsh-history-substring-search"]
+	path = dot_zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
