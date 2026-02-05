@@ -2,6 +2,7 @@
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
+include "tablet.kdl"
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -62,10 +63,6 @@ input {
         // middle-emulation
     }
 
-    tablet {
-      map-to-output "eDP-1"
-      left-handed
-    }
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 

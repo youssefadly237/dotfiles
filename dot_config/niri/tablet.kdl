@@ -1,0 +1,7 @@
+// tablet config
+input {
+    tablet {
+        map-to-output "HDMI-A-1"
+        left-handed
+    }
+}
