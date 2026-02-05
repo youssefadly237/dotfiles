@@ -40,6 +40,9 @@ full)
     STATUS=$(playerctl -p spotify status 2>/dev/null)
     TITLE=$(playerctl -p spotify metadata title 2>/dev/null)
     TITLE=$(escape_markup "${TITLE:-No music}")
+    ARTIST=$(playerctl -p spotify metadata artist 2>/dev/null)
+    ARTIST=$(escape_markup "${ARTIST:-Unknown artist}")
+    TOOLTIP=" $TITLE\n $ARTIST\n  $(get_volume)%"
     case "$STATUS" in
     Playing)
         CLASS="playing"
@@ -51,7 +54,7 @@ full)
         CLASS="idle"
         ;;
     esac
-    echo "{\"text\": \"$TITLE\", \"tooltip\": \" $(get_volume)%\", \"class\": \"$CLASS\"}"
+    echo "{\"text\": \"$TITLE\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
     ;;
 metadata)
     METADATA=$(playerctl -p spotify metadata --format '{{ title }}' 2>/dev/null)
