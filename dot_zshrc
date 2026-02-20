@@ -46,6 +46,11 @@ export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 export PATH="$HOME/.opencode/bin:$PATH"
 export MASONBIN="$HOME/.local/share/nvim/mason/bin"
 
+# editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+export SUDO_EDITOR='nvim'
+
 # === PROMPT ===
 eval "$(starship init zsh)"
 

@@ -7,11 +7,11 @@ return {
   config = function()
     require("minuet").setup({
       provider = "openai_fim_compatible",
-      n_completions = 1,
-      context_window = 1024,
+      n_completions = 4,
+      context_window = 4096,
 
       virtualtext = {
-        auto_trigger_ft = { "*" },
+        auto_trigger_ft = {},
         keymap = {
           accept = "<A-A>",
           accept_line = "<A-a>",
@@ -30,15 +30,11 @@ return {
           model = "qwen2.5-coder",
           stream = true,
           optional = {
-            max_tokens = 256,
+            max_tokens = 512,
             top_p = 0.9,
           },
         },
       },
     })
   end,
-
-  vim.keymap.set("n", "<leader>mv", function()
-    vim.cmd("Minuet virtualtext toggle")
-  end, { desc = "Toggle Minuet virtual text" }),
 }
