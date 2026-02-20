@@ -1,0 +1,23 @@
+# Load secrets first (defines account, folders, mailboxes)
+source $HOME/.config/neomutt/secrets.muttrc
+
+# Connection settings
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set imap_check_subscribed = no
+
+# Cache settings
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+
+# Sorting
+set sort = 'reverse-date'
+set sort_aux = 'last-date-received'
+
+# Trash
+set trash = "+[Gmail]/Trash"
+
+# UI and colors
+source $HOME/.config/neomutt/ui.muttrc
+source $HOME/.config/neomutt/colors.muttrc
