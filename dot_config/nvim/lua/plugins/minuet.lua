@@ -7,8 +7,9 @@ return {
   config = function()
     require("minuet").setup({
       provider = "openai_fim_compatible",
-      n_completions = 4,
+      n_completions = 1,
       context_window = 4096,
+      request_timeout = 60,
 
       virtualtext = {
         auto_trigger_ft = {},
@@ -30,7 +31,7 @@ return {
           model = "qwen2.5-coder",
           stream = true,
           optional = {
-            max_tokens = 512,
+            max_tokens = 1024,
             top_p = 0.9,
           },
         },
