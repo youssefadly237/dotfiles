@@ -11,16 +11,21 @@ go give em a star
 ## Includes
 
 - [alacritty](./dot_config/alacritty/)
+- [fuzzel](./dot_config/fuzzel/)
 - [inkscape](./dot_config/inkscape/)
+- [kitty](./dot_config/kitty/)
 - [mako](./dot_config/mako/)
+- [neomutt](./dot_config/neomutt/)
 - [Neovim](./dot_config/nvim/README.md)
+- [niri](./dot_config/niri/)
+- [pipewire](./dot_config/pipewire/)
+- [swaylock](./dot_config/swaylock/)
+- [taskbeep](./dot_config/taskbeep/)
 - [waybar](./dot_config/waybar/)
 - [Xournal++](./dot_config/xournalpp/)
 - [Starship](./dot_config/starship.toml)
 - [tmux](./dot_tmux.conf)
-- [niri](./dot_config/niri/)
 - [zsh](./dot_zshrc)
-- [fuzzel](./dot_config/fuzzel/)
 
 ## Installation
 
@@ -48,4 +53,4 @@ go give em a star
 
 ## License
 
-MIT — use it, fork it, break it, fix it.
+MIT, it is just dotfiles
