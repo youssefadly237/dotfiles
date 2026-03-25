@@ -67,6 +67,7 @@ HISTFILE=~/.zsh_history
 
 # === COMPLETION ===
 fpath+=~/.zfunc
+fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' expand 'yes'
@@ -133,6 +134,7 @@ alias a-uploud='arduino-cli upload -b esp32:esp32:node32s -p /dev/ttyUSB0'
 source ~/.zsh/functions/venvon.zsh
 source ~/.zsh/functions/update-discord.zsh
 source ~/.zsh/functions/tts_convert.zsh
+source ~/.zsh/functions/lazy.zsh
 
 function clearpycache() {
   echo "Clearing all __pycache__ folders under $(pwd)..."

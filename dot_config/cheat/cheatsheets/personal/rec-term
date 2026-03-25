@@ -1,0 +1,7 @@
+# record terminal gif
+
+# record
+asciinema rec whatever.cast
+
+# convert to gif (I know you forgot font name again)
+agg whatever.cast whatever.gif --font-family "JetBrainsMono Nerd Font"

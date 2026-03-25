@@ -1,0 +1,8 @@
+# Morse Code Train
+# -r         -> random
+# -a         -> show after res
+# -n 1       -> one at a time
+# -s         -> stop per char
+# -C "LETRS" -> specify letters
+
+morse -r -a -n 1 -s -C "EAIMTSH"
