@@ -1,5 +1,5 @@
 return {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { import = "plugins.catppuccin" },
   { import = "plugins.cmp" },
   { import = "plugins.lsp" },
   { import = "plugins.treesitter" },
