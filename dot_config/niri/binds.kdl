@@ -1,0 +1,34 @@
+binds {
+    // apps
+    Super+X hotkey-overlay-title="Xournal++" {spawn "xournalpp";}
+    Super+E hotkey-overlay-title="Nautilus" {spawn "nautilus";}
+    Super+B hotkey-overlay-title="Brave" {spawn "brave-browser";}
+    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+
+   // fuzzel
+    Super+V hotkey-overlay-title="Fuzzel Clipboard" { spawn-sh "~/.scripts/clipmenu.sh"; }
+    Super+T hotkey-overlay-title="Read Clipboard" { spawn-sh "~/Scripts/read_clipboard.sh"; }
+    Mod+Shift+Period hotkey-overlay-title="emoji selector" { spawn-sh "~/.scripts/fuzzel-emoji.sh"; }
+
+   // actions
+    Super+Shift+S { screenshot; }
+    Super+TabletStylusPrimary hotkey-overlay-title="Toggle tablet mapping" { spawn-sh "~/.scripts/niri-tablet.sh"; }
+
+    // navigation
+    Mod+MouseForward { focus-column-left; }
+    Mod+MouseBack { focus-column-right; }
+
+    // vol-ctl
+    XF86AudioRaiseVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh raise"; }
+    XF86AudioLowerVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh lower"; }
+    XF86AudioMute { spawn-sh "~/.scripts/vol-ctl-wrapper.sh mute"; }
+    Mod+XF86AudioRaiseVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh sink-raise"; }
+    Mod+XF86AudioLowerVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh sink-lower"; }
+    Mod+XF86AudioMute { spawn-sh "~/.scripts/vol-ctl-wrapper.sh sink-mute"; }
+    Shift+XF86AudioRaiseVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh cycle-next"; }
+    Shift+XF86AudioLowerVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh cycle-prev"; }
+    Mod+Shift+XF86AudioRaiseVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh sink-next"; }
+    Mod+Shift+XF86AudioLowerVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh sink-prev"; }
+    Mod+Ctrl+XF86AudioRaiseVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh default-next"; }
+    Mod+Ctrl+XF86AudioLowerVolume { spawn-sh "~/.scripts/vol-ctl-wrapper.sh default-prev"; }
+}

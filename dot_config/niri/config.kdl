@@ -3,6 +3,7 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 include "tablet.kdl"
+include "binds.kdl"
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -373,20 +374,6 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // mine config
-    Super+G hotkey-overlay-title="Toggle tablet mapping" { spawn-sh "~/.scripts/niri-tablet.sh"; }
-    Super+V hotkey-overlay-title="Fuzzel Clipboard" { spawn-sh "~/.scripts/clipmenu.sh"; }
-    Super+T hotkey-overlay-title="Read Clipboard" { spawn-sh "~/Scripts/read_clipboard.sh"; }
-    Super+X hotkey-overlay-title="Xournal++" {spawn "xournalpp";}
-    Super+E hotkey-overlay-title="Nautilus" {spawn "nautilus";}
-    Super+B hotkey-overlay-title="Brave" {spawn "brave-browser";}
-    Super+Shift+S { screenshot; }
-    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Shift+Period hotkey-overlay-title="emoji selector" { spawn-sh "~/.scripts/fuzzel-emoji.sh"; }
-    Mod+MouseForward { focus-column-left; }
-    Mod+MouseBack { focus-column-right; }
-
-
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
@@ -401,10 +388,10 @@ binds {
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
     // "-l 1.0" limits the volume to 100%.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    // XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    // XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
