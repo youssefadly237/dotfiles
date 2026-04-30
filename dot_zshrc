@@ -12,14 +12,25 @@ export RUST_BACKTRACE=1
 export GEM_HOME="$HOME/gems"
 export PATH="$GEM_HOME/bin:$PATH"
 
-# Node/NVM
+# Node/NVM (lazy)
 export NVM_DIR="$HOME/.nvm"
 
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+node() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; node "$@" }
+npm()  { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; npm  "$@" }
+npx()  { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; npx  "$@" }
+
 # Go
-export PATH="/usr/local/go/bin:$PATH"
-export GOPATH=$(go env GOPATH)
-export GOBIN=$GOPATH/bin
-export PATH="$GOBIN:$PATH"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="/usr/local/go/bin:$GOBIN:$PATH"
+
+# Haskell/GHCup
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
 # Android
 export ANDROID_HOME="$HOME/Android/Sdk"
@@ -82,9 +93,6 @@ zstyle ':completion:*' verbose true
 
 # === SOURCE EXTERNAL CONFIGS ===
 
-# Node/NVM
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-
 # Rust/Cargo
 source "$HOME/.cargo/env"
 
@@ -96,9 +104,6 @@ source /etc/profile.d/gradle.sh
 
 # XMake
 [[ -f "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile"
-
-# Bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # zsh history
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=black,fg=green,bold'
@@ -135,6 +140,8 @@ source ~/.zsh/functions/venvon.zsh
 source ~/.zsh/functions/update-discord.zsh
 source ~/.zsh/functions/tts_convert.zsh
 source ~/.zsh/functions/lazy.zsh
+source ~/.zsh/functions/gen-completions.sh
+
 
 function clearpycache() {
   echo "Clearing all __pycache__ folders under $(pwd)..."
