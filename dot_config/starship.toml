@@ -19,6 +19,7 @@ $java\
 $kotlin\
 $haskell\
 $python\
+$typst\
 [](fg:green bg:sapphire)\
 $conda\
 [](fg:sapphire bg:lavender)\
@@ -194,6 +195,11 @@ format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [ocaml]
 symbol = " "
+
+[typst]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [os.symbols]
 Alpaquita = " "

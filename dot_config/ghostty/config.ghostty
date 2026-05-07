@@ -1,0 +1,16 @@
+# font
+font-family = "JetBrainsMono Nerd Font"
+
+# cursor
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+# shaders
+custom-shader = shaders.glsl
+
+# theme
+theme = Catppuccin Mocha
+
+# notify
+app-notifications = false

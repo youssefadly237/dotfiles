@@ -12,6 +12,7 @@ go give em a star
 
 - [alacritty](./dot_config/alacritty/)
 - [fuzzel](./dot_config/fuzzel/)
+- [ghostty](./dot_config/ghostty/)
 - [inkscape](./dot_config/inkscape/)
 - [kitty](./dot_config/kitty/)
 - [mako](./dot_config/mako/)
