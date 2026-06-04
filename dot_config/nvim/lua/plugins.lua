@@ -2,7 +2,7 @@ return {
   { import = "plugins.catppuccin" },
   { import = "plugins.cmp" },
   { import = "plugins.lsp" },
-  { import = "plugins.treesitter" },
+  { import = "plugins.arborist" },
   { import = "plugins.mason" },
   { import = "plugins.lsp_lines" },
   { import = "plugins.formatters" },
