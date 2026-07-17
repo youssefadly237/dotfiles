@@ -5,6 +5,9 @@ local -A _completions=(
   cheat    "cheat --completion zsh"
   typst    "typst completions zsh"
   taskbeep "taskbeep completions zsh"
+  rustup   "rustup completions zsh"
+  just     "just --completions zsh"
+  fnm      "fnm completions --shell zsh"
   # oven-sh/bun/issues/10897
   bun      "bun completions"
 )

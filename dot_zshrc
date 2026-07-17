@@ -2,7 +2,7 @@
 
 # General environment
 export TERM=xterm-256color
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER='nvim +Man!'
 export RUST_BACKTRACE=1
 
 # Ruby
@@ -12,17 +12,8 @@ export PATH="$GEM_HOME/bin:$PATH"
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Node/NVM (lazy)
-export NVM_DIR="$HOME/.nvm"
-
-nvm() {
-  unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-  nvm "$@"
-}
-node() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; node "$@" }
-npm()  { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; npm  "$@" }
-npx()  { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; npx  "$@" }
+# Node/FNM
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Go
 export GOPATH="$HOME/go"
@@ -132,6 +123,7 @@ alias beep='taskbeep'
 alias c='clear'
 alias vmon='krfb-virtualmonitor --name PhoneDisplay --resolution 2460x1080 --password 123 --port 5900'
 alias getidf='source $HOME/development/esp-idf/export.sh'
+alias rs-esp='bash $HOME/export-esp.sh'
 
 # Arduino
 alias a-monitor='arduino-cli monitor -p /dev/ttyUSB0 --config 115200 -b esp32:esp32:node32s'
