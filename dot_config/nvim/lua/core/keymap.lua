@@ -90,3 +90,7 @@ map("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height", silent =
 map("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height", silent = true })
 map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width", silent = true })
 map("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width", silent = true })
+
+-- Mouse
+vim.keymap.set({ "n", "v", "i" }, "<X1Mouse>", "<C-o>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "i" }, "<X2Mouse>", "<C-i>", { noremap = true, silent = true })

@@ -128,6 +128,9 @@ return {
     setup("tinymist", {
       settings = {
         formatterMode = "typstyle",
+        formatterPrintWidth = 80,
+        formatterIndentSize = 2,
+        formatterProseWrap = true,
         exportPdf = "onType",
         semanticTokens = "disable",
         projectResolution = "lockDatabase",

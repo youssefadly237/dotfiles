@@ -75,4 +75,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- bidi
+vim.opt.termbidi = true
+
+-- neovide
 vim.g.neovide_scale_factor = 0.75

@@ -59,6 +59,7 @@ return {
         }),
         formatting.prettier.with({
           filetypes = { "markdown", "md" },
+          extra_args = { "--prose-wrap", "always", "--print-width", "80" },
         }),
         diagnostics.markdownlint,
 
