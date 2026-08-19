@@ -8,6 +8,8 @@ local -A _completions=(
   rustup   "rustup completions zsh"
   just     "just --completions zsh"
   fnm      "fnm completions --shell zsh"
+  bat      "bat --completion zsh"
+  chezmoi  "chezmoi completion zsh"
   # oven-sh/bun/issues/10897
   bun      "bun completions"
 )

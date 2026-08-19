@@ -85,6 +85,9 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' verbose true
 
+# === MISC ===
+export LESSUTFCHARDEF=E000-F8FF:p,F0000-FFFFD:p,100000-10FFFD:p
+
 # === SOURCE EXTERNAL CONFIGS ===
 
 # Rust/Cargo
@@ -132,14 +135,13 @@ alias a-uploud='arduino-cli upload -b esp32:esp32:node32s -p /dev/ttyUSB0'
 
 # === CUSTOM FUNCTIONS ===
 source ~/.zsh/functions/venvon.zsh
-source ~/.zsh/functions/update-discord.zsh
+source ~/.zsh/functions/where-was-i.zsh
 source ~/.zsh/functions/tts_convert.zsh
 source ~/.zsh/functions/lazy.zsh
-source ~/.zsh/functions/gen-completions.sh
-
+source ~/.zsh/functions/gen-completions.zsh
 
 function clearpycache() {
-  echo "Clearing all __pycache__ folders under $(pwd)..."
-  find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
-  echo "All cleared up"
+    echo "Clearing all __pycache__ folders under $(pwd)..."
+    find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
+    echo "All cleared up"
 }

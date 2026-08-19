@@ -25,4 +25,5 @@ return {
   { import = "plugins.navic" },
   { import = "plugins.surround" },
   { import = "plugins.minuet" },
+  { import = "plugins.glyf" },
 }

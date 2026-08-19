@@ -38,16 +38,6 @@ return {
         -- Lua
         formatting.stylua,
 
-        -- Rust
-        {
-          method = null_ls.methods.FORMATTING,
-          filetypes = { "rust" },
-          generator = null_ls.formatter({
-            command = "rustfmt",
-            to_stdin = true,
-          }),
-        },
-
         -- JavaScript/TypeScript
         formatting.prettier,
 
@@ -71,6 +61,18 @@ return {
         -- Bash
         formatting.shfmt.with({
           extra_args = { "-i", "4" },
+        }),
+
+        -- POSIX shell
+        formatting.shfmt.with({
+          filetypes = { "sh" },
+          extra_args = { "-i", "4", "-ln", "posix" },
+        }),
+
+        -- Zsh
+        formatting.shfmt.with({
+          filetypes = { "zsh" },
+          extra_args = { "-i", "4", "-ln", "zsh" },
         }),
 
         -- TOML

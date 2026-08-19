@@ -10,16 +10,16 @@ tts_convert() {
     local OPTIND opt
     while getopts "s:" opt; do
         case $opt in
-            s)
-                speaker="$OPTARG"
-                ;;
-            \?)
-                echo "Invalid option: -$OPTARG" >&2
-                return 1
-                ;;
+        s)
+            speaker="$OPTARG"
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            return 1
+            ;;
         esac
     done
-    shift $((OPTIND-1))
+    shift $((OPTIND - 1))
 
     if [ $# -lt 1 ]; then
         echo "Usage: tts_convert [-s speaker] input.txt [output.wav]"
@@ -36,10 +36,10 @@ tts_convert() {
     fi
 
     /home/youssef-adly/Apps/Audify/.venv/bin/tts \
-      --model_name "tts_models/multilingual/multi-dataset/xtts_v2" \
-      --speaker_idx "$speaker" \
-      --language_idx en \
-      --use_cuda \
-      --text "$(cat "$input_file")" \
-      --out_path "$output_file"
+        --model_name "tts_models/multilingual/multi-dataset/xtts_v2" \
+        --speaker_idx "$speaker" \
+        --language_idx en \
+        --use_cuda \
+        --text "$(cat "$input_file")" \
+        --out_path "$output_file"
 }
