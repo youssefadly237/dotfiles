@@ -26,4 +26,5 @@ return {
   { import = "plugins.surround" },
   { import = "plugins.minuet" },
   { import = "plugins.glyf" },
+  { import = "plugins.typst-preview" },
 }
