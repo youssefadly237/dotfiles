@@ -1,0 +1,10 @@
+./configure \
+    --ssl \
+    --gpgme \
+    --gss \
+    --gsasl \
+    --sqlite \
+    --pcre2 \
+    --notmuch \
+    --lua \
+    --lmdb

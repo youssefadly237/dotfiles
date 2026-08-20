@@ -1,0 +1,5 @@
+# list apps
+scrcpy --list-apps
+
+# start app
+scrcpy --new-display --start-app=com.package.name

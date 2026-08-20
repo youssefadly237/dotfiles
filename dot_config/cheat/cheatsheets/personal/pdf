@@ -1,0 +1,33 @@
+### Poppler ###
+
+# pdftotext
+pdftotext -layout file.pdf output.txt
+
+# pdfimages
+#   -f -> first page
+#   -l -> last page
+#   -p -> include page number in filename
+pdfimages -all -p file.pdf dir/prefix
+pdfimages -all -p -f 10 -l 20 file.pdf dir/prefix
+
+# list images
+pdfimages -list file.pdf
+
+
+### pdftk ###
+
+# concatenate all PDF files
+pdftk *.pdf cat output all.pdf
+
+# concatenate specific PDF files
+pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf
+
+# concatenate specific pages
+# pages 1-5 of first.pdf + page 3 of second.pdf
+pdftk A=first.pdf B=second.pdf cat A1-5 B3 output new.pdf
+
+# dump PDF metadata
+pdftk file.pdf dump_data_utf8 output metadata.txt
+
+# update PDF metadata
+pdftk file.pdf update_info_utf8 metadata.txt output output.pdf
