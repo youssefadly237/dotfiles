@@ -24,9 +24,7 @@ if [[ -n "$cmd" ]]; then
     esac
 fi
 
-raw=$(taskbeep status --format plain 2>/dev/null)
-
-if [[ $? -ne 0 ]] || [[ -z "$raw" ]]; then
+if ! raw=$(taskbeep status --format plain 2>/dev/null) || [[ -z "$raw" ]]; then
     echo '{"text":"Idle", "class":"idle"}'
     exit 0
 fi

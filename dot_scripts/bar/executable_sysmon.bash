@@ -40,7 +40,9 @@ get_gpu_usage() {
 
 # Get top CPU processes
 get_top_cpu() {
-    local num_cores=$(nproc)
+    local num_cores
+    num_cores=$(nproc)
+
     ps aux --sort=-%cpu | awk -v cores="$num_cores" 'NR>1 && NR<=11 && $11 !~ /^(ps|awk|top|grep)$/ {
         cpu_total = $3 / cores
         if (cpu_total > 0.1) {
@@ -59,7 +61,11 @@ get_top_ram() {
 # Get top GPU processes
 get_top_gpu() {
     if command -v nvidia-smi &>/dev/null; then
-        local output=$(nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv,noheader 2>/dev/null)
+        local output
+        output=$(nvidia-smi \
+            --query-compute-apps=pid,process_name,used_memory \
+            --format=csv,noheader 2>/dev/null)
+
         if [ -z "$output" ]; then
             echo "No active GPU compute processes"
         else
