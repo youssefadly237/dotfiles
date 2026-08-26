@@ -1,0 +1,38 @@
+blur {
+  passes 2
+}
+window-rule {
+  geometry-corner-radius 6
+  clip-to-geometry true
+}
+window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+}
+window-rule {
+  // idk why but kitty is broken without this
+  match app-id="kitty"
+  draw-border-with-background false
+}
+window-rule {
+  match app-id="flameshot" title="flameshot-pin"
+  open-floating true
+}
+layer-rule {
+  match namespace="^awww-daemon$"
+  place-within-backdrop true
+}
+layer-rule {
+  exclude namespace="^waybar$"
+  exclude namespace="^notifications$"
+  background-effect {
+    blur true
+    xray false
+  }
+}
+layer-rule {
+  match namespace="notifications"
+  block-out-from "screen-capture"
+}

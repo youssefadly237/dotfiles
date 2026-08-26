@@ -1,0 +1,2 @@
+fmt:
+  kdlfmt format --kdl-version v1 .
