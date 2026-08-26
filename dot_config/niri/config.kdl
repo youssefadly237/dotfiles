@@ -11,8 +11,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "flameshot"
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store &"
-spawn-at-startup "~/.scripts/rnd-wallpaaper.bash daemon"
-spawn-sh-at-startup "~/.scripts/rnd-wallpaaper.bash"
+spawn-sh-at-startup "~/.scripts/rnd-wallpaper.bash daemon && ~/.scripts/rnd-wallpaper.bash"
 hotkey-overlay {
   // disable pop-up at startup.
   skip-at-startup

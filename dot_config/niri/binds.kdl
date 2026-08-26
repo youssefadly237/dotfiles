@@ -37,7 +37,7 @@ binds {
   }
   // wallpaper
   Mod+Shift+W hotkey-overlay-title="Random Wallpaper" {
-    spawn-sh "~/.scripts/rnd-wallpaaper.bash"
+    spawn-sh "~/.scripts/rnd-wallpaper.bash"
   }
   // screenshot
   Print {
