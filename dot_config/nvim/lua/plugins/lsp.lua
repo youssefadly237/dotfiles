@@ -126,6 +126,9 @@ return {
 
     -- Typst LSP (Tinymist)
     setup("tinymist", {
+      on_attach = function(_, bufnr)
+        require("custom.typst-on-enter").attach(bufnr)
+      end,
       settings = {
         formatterMode = "typstyle",
         formatterPrintWidth = 80,
@@ -134,6 +137,7 @@ return {
         exportPdf = "onType",
         semanticTokens = "disable",
         projectResolution = "lockDatabase",
+        onEnter = { handleList = true },
       },
     })
 
