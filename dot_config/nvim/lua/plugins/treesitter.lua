@@ -1,68 +1,23 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  -- btw do not use gcc on windows, just install clang
+
+  lazy = false,
   build = ":TSUpdate",
-  opts = {
-    ensure_installed = {
-      -- Core
-      "lua",
-      "vim",
-      "vimdoc",
-      "query",
 
-      -- System
-      "c",
-      "cpp",
-      "rust",
+  config = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        local lang = vim.treesitter.language.get_lang(args.match)
 
-      -- Scripting
-      "bash",
-      "python",
-      "fish",
-
-      -- Web
-      "html",
-      "css",
-      "javascript",
-      "typescript",
-      "json",
-
-      -- Data & config
-      "yaml",
-      "toml",
-      "markdown",
-      "markdown_inline",
-      "sql",
-
-      -- Build tools / Git
-      "regex",
-      "make",
-      "cmake",
-      "git_config",
-      "gitcommit",
-      "gitattributes",
-
-      -- Extras
-      "latex", -- depends on tree-sitter-cli
-      "arduino",
-      -- Assembly parsers
-      "asm",
-      "nasm",
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-  },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
-
-    vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-      callback = function()
-        local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
-        if lang and require("nvim-treesitter.parsers").has_parser(lang) then
-          vim.cmd("TSBufEnable highlight")
+        if not lang then
+          return
         end
+
+        if not vim.tbl_contains(require("nvim-treesitter").get_installed(), lang) then
+          return
+        end
+
+        vim.treesitter.start(args.buf, lang)
       end,
     })
   end,

@@ -14,5 +14,23 @@ return {
   keys = {
     { "<leader>ggb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Git Blame" },
     { "<leader>ggB", "<cmd>Gitsigns blame_line<cr>", desc = "Show Full Blame" },
+    {
+      "<leader>ggn",
+      function()
+        require("gitsigns").nav_hunk("next", {
+          target = "all",
+        })
+      end,
+      desc = "Next Git Hunk",
+    },
+    {
+      "<leader>ggN",
+      function()
+        require("gitsigns").nav_hunk("prev", {
+          target = "all",
+        })
+      end,
+      desc = "Previous Git Hunk",
+    },
   },
 }

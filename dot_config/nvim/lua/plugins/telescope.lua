@@ -72,5 +72,6 @@ return {
     vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Find Commands" })
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
     vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Grep String" })
+    vim.keymap.set("n", "<leader>fd", "<cmd>Telescope git_status<CR>", { desc = "Telescope git status" })
   end,
 }
