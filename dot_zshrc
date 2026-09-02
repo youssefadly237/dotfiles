@@ -51,6 +51,9 @@ export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 export PATH="$HOME/.opencode/bin:$PATH"
 export MASONBIN="$HOME/.local/share/nvim/mason/bin"
 
+# mise
+eval "$(mise activate zsh)"
+
 # editor
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -127,6 +130,7 @@ alias c='clear'
 alias vmon='krfb-virtualmonitor --name PhoneDisplay --resolution 2460x1080 --password 123 --port 5900'
 alias getidf='source $HOME/development/esp-idf/export.sh'
 alias rs-esp='bash $HOME/export-esp.sh'
+alias oc='opencode2'
 
 # Arduino
 alias a-monitor='arduino-cli monitor -p /dev/ttyUSB0 --config 115200 -b esp32:esp32:node32s'

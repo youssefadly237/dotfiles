@@ -86,6 +86,9 @@ return {
           }),
         },
 
+        -- Just
+        formatting.just,
+
         -- Assembly
         formatting.asmfmt,
       },
