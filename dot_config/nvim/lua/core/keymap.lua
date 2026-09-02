@@ -91,6 +91,14 @@ map("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height", silent
 map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width", silent = true })
 map("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width", silent = true })
 
+-- Multi cursor
+map("n", "<leader>cl", function()
+  local ns = vim.api.nvim_get_namespaces()["nvim.multicursor"]
+  if ns then
+    vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+  end
+end, { desc = "Clear multicursors" })
+
 -- Mouse
 vim.keymap.set({ "n", "v", "i" }, "<X1Mouse>", "<C-o>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "i" }, "<X2Mouse>", "<C-i>", { noremap = true, silent = true })
